@@ -6,10 +6,6 @@ const checkAuth = (req, res, next) => {
 
     try{
 
-        if(req.method === "OPTIONS"){
-            return next();
-        }
-
         const authHeader = req.get('Authorization');
 
         if(!authHeader){
