@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESET PASSWORD</title>
+    <style>
+
+        body{
+            padding:0;
+            margin:0;
+            font-family: Arial, sans-serif;
+            background-color:rgb(213, 209, 231);
+        }
+
+        .email-container{
+            width:100%;
+            max-width:600px;
+            padding:20px;
+            margin:0 auto;
+            padding:20px;
+            text-align: center;
+            border-radius:5px;
+            color:rgb(15, 27, 44);
+        }
+
+        .email-content{
+            width:100%;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        h1{
+            text-align: center;
+            margin-top:5px;
+        }
+
+        p{
+            margin-top:10px;
+            font-size:16px;
+        }
+
+        .otp{
+            margin-top:10px;
+            padding:10px 20px;
+            border: 2px dashed rgb(126, 145, 166);
+            border-radius:10px;
+        }
+
+        h2{
+            color:rgb(70, 70, 123);
+        }
+
+        .otp p{
+            color:rgb(173, 87, 87);
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container" >
+        <div class="email-content" >
+            <h1>Flick Tickets</h1>
+            <p>Hi #{name}, Please use the below otp to reset your password!</p>
+            <div class="otp" >
+                <h2>#{otp}</h2>
+                <p>This otp will expire with in 15 minutes!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
