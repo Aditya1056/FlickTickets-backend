@@ -1,5 +1,3 @@
-const fs = require('fs');
-
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -7,9 +5,10 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const HttpError = require('./util/httpError');
-
 const { cloudinary } = require('./middleware/fileUpload');
+
+const HttpError = require('./util/httpError');
+const limiter = require('./util/rateLimiter');
 
 const userRoutes = require('./routes/users');
 const movieRoutes = require('./routes/movies');
@@ -31,9 +30,11 @@ app.use((req, res, next) => {
         'Access-Control-Allow-Headers', 
         'Origin, X-Requested-With, Content-Type, Accept, Authorization'
     );
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
     next();
 });
+
+app.use(limiter);
 
 app.use('/api/users', userRoutes);
 app.use('/api/movies', movieRoutes);
