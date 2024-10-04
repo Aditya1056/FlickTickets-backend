@@ -56,7 +56,7 @@ app.use((error, req, res, next) => {
 mongoose.connect(MONGODB_URI).
 then((result) => {
     app.listen(port);
-    console.log('Database connected!');
+    console.log('Connected to database!');
 }).
 catch((err) => {
     console.log(err);
